@@ -42,7 +42,17 @@
         eventHandler = function(event){
           $(".dropbtn:first-child").text($(this).text());
           $(".dropbtn:first-child").val($(this).text());
-        }
+          $.post("cheesecake-267906:us-west1:cheesecaked/ORDERS", 
+            { }, 
+            function(data) {
+              alert("data: " + data);
+            }
+          );
+         
+         
+        };
+
+
 
         $(function(){
           $(".dropdown-content a").click(eventHandler);
