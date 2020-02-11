@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!-Grant Stone->
+<html>
+
+<head>
+    <h1 class="sansserif">Cheesecake Order Form</h1>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stoneg21.css">
+    <script
+      src=" https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"/>
+    </script>
+
+    <!-Script for handling form->
+    <script src="javascripts/readForm.js"></script>
+
+</head>
+
+<body>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Mondays_at_Il_Forno_-_Cheesecake_with_strawberry_sauce.jpg/240px-Mondays_at_Il_Forno_-_Cheesecake_with_strawberry_sauce.jpg" alt="Cheesecake">
+
+    <form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
+        <table>
+            <tr>
+                <th>Quantity</th>
+                <th>Topping</th>
+            </tr>
+            <tr>
+                <td>
+                    <select name="fquantity">
+                        <option value="zero">0</option>
+                        <option value="one">1</option>
+                        <option value="two">2</option>
+                        <option value="three" selected>3</option>
+                        <option value="four">4</option>
+                        <option value="five">5</option>
+                        <option value="six">6</option>
+                        <option value="seven">7</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="radio" name="ftopping" value="plain" checked> Plain
+                    <br>
+                    <input type="radio" name="ftopping" value="cherry"> Cherry
+                    <br>
+                    <input type="radio" name="ftopping" value="chocolate"> Chocolate
+                </td>
+            </tr>
+            <tr>
+                <td>Notes:</td>
+            </tr>
+            <tr>
+
+                <td>
+                    <textarea type="text" rows="4" cols="51" name="fnotes" placeholder="Enter any special instructions here."></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" name="Order">
+                </td>
+            </tr>
+
+        </table>
+    </form>
+
+    <p>Thank you! Your order has been placed.</p>
+
+    <!-External Citation-
+      -Date: 1/27/2020
+      -Problem: I did not know to make a hover dropdown menu.
+      -Resource: https://www.w3schools.com/howto/howto_css_dropdown.asp
+      -Solution: I used code from this example to make a hover dropdown menu.
+    ->
+    <h3>Total Orders Last 
+       <div class="dropdown">
+            <button class="dropbtn">Jan</button>
+            <div class="dropdown-content">
+                <a href="#">Jan</a>
+                <a href="#">Feb</a>
+                <a href="#">Mar</a>
+                <a href="#">Apr</a>
+                <a href="#">May</a>
+                <a href="#">Jun</a>
+                <a href="#">Jul</a>
+                <a href="#">Aug</a>
+                <a href="#">Sep</a>
+                <a href="#">Oct</a>
+                <a href="#">Nov</a>
+                <a href="#">Dec</a>
+            </div>
+        </div>
+    </h3>
+
+
+    <ul>
+        <li>11 cherry</li>
+        <li>17 chocolate</li>
+        <li>31 plain</li>
+    </ul>
+
+</body>
+
+</html>
