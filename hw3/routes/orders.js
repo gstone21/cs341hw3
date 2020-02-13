@@ -1,3 +1,7 @@
+/* Grant Stone 
+   cs341 hw4
+*/
+
 var express = require('express');
 var router = express.Router();
 var ordObj = {data:[
@@ -5,13 +9,25 @@ var ordObj = {data:[
                {topping: "plain", quantity: 6},
                {topping: "chocolate", quantity: 3}
              ]};
-var ordJSON = JSON.stringify(ordObj);
+var ordJson = JSON.stringify(ordObj);
 
-/* GET orders   */
+/* GET orders  */
 router.get('/', function(req, res, next) {
-  //for(x in ordObj.data) {
-    res.json(ordObj);
-
+    res.send(ordJson);
 });
 
-module.exports = router;
+
+/* POST orders   */
+router.post('/', function(req, res, next) {
+    var month = req.body.month;
+    res.send(ordJson);
+});
+/*-External Citation-
+  -Date: 2/13/2020
+  -Problem: I did not know how to issue/handle a post. This example helped.
+  -Resource: https://codeforgeek.com/handle-get-post-request-express-4/
+  -Solution: I followed the code from this example to make my post. 
+             This example also helped in readForm.js.
+*/
+    
+module.exports = router;  
