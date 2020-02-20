@@ -59,7 +59,7 @@ eventHandler = function(event){
 
     month = $(this).text();
     $.post("http://localhost:3000/orders", {month: month}, function(data) {
-        //alert("data? "+data);
+        //alert("data? "+data+month);
         $("ul").empty();
         $("ul").append(data);
     });

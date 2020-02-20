@@ -11,16 +11,25 @@ var ordObj = {data:[
              ]};
 var ordJson = JSON.stringify(ordObj);
 
-/* GET orders  */
+/* GET orders  
 router.get('/', function(req, res, next) {
     res.send(ordJson);
-});
+}); */
 
-
+var dbms = require('./dbms.js');
 /* POST orders   */
 router.post('/', function(req, res, next) {
     var month = req.body.month;
-    res.send(ordJson);
+    var MON = month.toUpperCase();
+    var query = 'SELECT * FROM ORDERS WHERE MONTH='+MON;
+    dbquery(query, function(error, result) {
+	    /*if(!error){
+	    	res.send(result)
+	    } */
+        
+	
+});  
+    //res.send(ordJson+MON);
 });
 /*-External Citation-
   -Date: 2/13/2020
