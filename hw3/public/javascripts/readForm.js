@@ -35,10 +35,11 @@ function validateForm() {
         var quantity = document.forms["myForm"]["fquantity"].value;
         var topping = document.forms["myForm"]["ftopping"].value;
         alert("You ordered " + quantity + " " + topping + " cheesecake(s). Notes: " + notes);
-    }
+    } 
     $.post("http://localhost:3000/neworder", {quantity: quantity , topping: topping, notes: notes}, function(data) {
 	    // 
 	}); 
+	
 	return false;
      
 }
