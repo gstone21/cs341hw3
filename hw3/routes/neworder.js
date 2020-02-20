@@ -1,6 +1,8 @@
-/* Grant Stone 
+/* 
+   Grant Stone 
    cs341 hw4
-   neworder.js */
+   neworder.js 
+*/
 
 
 var express = require('express');
@@ -11,9 +13,10 @@ var orderid = 63;
 /* POST new orders */
 router.post('/', function(req, res, next) { 
     var quantity = req.body.quantity;
-    var topping = req.body.quantity;
+    var topping = req.body.topping;
     var notes = req.body.notes;
-    var query = "INSERT INTO ORDERS (ORDERID, MONTH, DAY, QUANTITY, TOPPING, NOTES) "+"VALUES ("+orderid+", \'OCT\', 10, "+quantity+", \'"+topping+"\', \'"+notes+"\')";
+    var query = "INSERT INTO ORDERS (ORDERID, MONTH, DAY, QUANTITY, TOPPING, NOTES) "+
+                "VALUES ("+orderid+", \'OCT\', 10, "+quantity+", \'"+topping+"\', \'"+notes+"\')";
                 
     orderid+=1; 
     
