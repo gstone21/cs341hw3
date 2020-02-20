@@ -22,20 +22,23 @@ $(document).ready(function(){
 });
 
 function validateForm() {
-    var x = document.forms["myForm"]["fnotes"].value;
-    if (x.search("vegan")!= -1) {
+    var notes = document.forms["myForm"]["fnotes"].value;
+    if (notes.search("vegan")!= -1) {
         alert("Warning: Cheesecakes contain dairy.");
-        return false;
     }else {
         $(document).ready(function(){
             $("form").hide();
             $("p").show();
         });
-        var y = document.forms["myForm"]["fquantity"].value;
-        var z = document.forms["myForm"]["ftopping"].value;
-        alert("You ordered " + y + " " + z + " cheesecake(s). Notes: " + x);
-        return false;
-     }
+        var quantity = document.forms["myForm"]["fquantity"].value;
+        var topping = document.forms["myForm"]["ftopping"].value;
+        alert("You ordered " + quantity + " " + topping + " cheesecake(s). Notes: " + notes);
+    }
+    $.post("http://localhost:3000/neworder", {quantity: quantity , topping: topping, notes: notes}, function(data) {
+	    // 
+	}); 
+	return false;
+     
 }
 // end of actual form
 

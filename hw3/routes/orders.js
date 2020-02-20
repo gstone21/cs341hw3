@@ -1,35 +1,39 @@
 /* Grant Stone 
    cs341 hw4
+   orders.js 
 */
 
 var express = require('express');
 var router = express.Router();
+var dbms = require('./dbms.js');
+
+/* No longer needed
 var ordObj = {data:[
                {topping: "cherry", quantity: 2},
                {topping: "plain", quantity: 6},
                {topping: "chocolate", quantity: 3}
              ]};
 var ordJson = JSON.stringify(ordObj);
-
 /* GET orders  
 router.get('/', function(req, res, next) {
     res.send(ordJson);
 }); */
 
-var dbms = require('./dbms.js');
+
+
 /* POST orders   */
 router.post('/', function(req, res, next) {
     var month = req.body.month;
-    var MON = month.toUpperCase();
-    var query = 'SELECT * FROM ORDERS WHERE MONTH='+MON;
-    dbquery(query, function(error, result) {
-	    /*if(!error){
-	    	res.send(result)
-	    } */
-        
-	
-});  
-    //res.send(ordJson+MON);
+    var MON = month.toUpperCase(); 
+    var query = "SELECT * FROM ORDERS WHERE MONTH=\'"+MON+"\'";
+    dbms.dbquery(query, function(error, result) {
+	    var data = JSON.stringify(result);
+	    if(!error){
+	    	res.send(data);
+	    }else {
+		    res.send("Error. ");
+	    }
+    });  
 });
 /*-External Citation-
   -Date: 2/13/2020
